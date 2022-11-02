@@ -1,0 +1,250 @@
+:root{
+    --rojo: #E50914;
+    --fondo: #141414;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: var(--fondo);
+    font-family:'Open Sans', sans-serif ;
+}
+
+.container{
+    width: 90%;
+    margin: auto;
+    
+}
+
+header{
+    
+    padding: 30px 0;
+}
+
+header .container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header .logotipo{
+    font-family:'Bebas Neue', cursive ;
+    font-weight: normal;
+    font-size: 40px;
+    color: var(--rojo);
+}
+
+header nav a{
+    color: #aaa;
+    text-decoration: none;
+    margin-right: 20px;
+}
+
+header nav a:hover,
+header nav a.activo{
+    color: white;
+}
+
+.pelicula-principal{
+    font-size: 16px;
+    min-height: 40.62em;
+    background-image: linear-gradient(rgba(0,0,0,.50) 0%, rgba(0,0,0,.50) 100%),  url('../img/backdrop.jpg');
+    background-position: center center;
+    background-size: cover;
+    margin-bottom: 3.62em;
+    color: white;
+    display: flex;
+    align-items: end;
+  
+}
+
+.pelicula-principal .container{
+    margin: 0px auto;
+    margin-bottom: 6.25em;
+}
+
+.pelicula-principal .title{
+    font-size: 3.12em;
+    margin-bottom: 0.4em;
+    font-weight: 600;
+}
+
+.pelicula-principal .description{
+    font-weight: normal;
+    font-size: 1em;
+    line-height: 1.75em;
+    margin-bottom: 1.25em;
+    max-width: 50%;
+}
+
+.pelicula-principal .boton{
+    padding: 0.93em 1.87em;
+    margin-right: 1.27em;
+    border: none;
+    color: white;
+    border-radius: 0.31em;
+    transition: .3s ease all;
+    cursor: pointer;
+    background-color: rgba(0,0,0,0.5);   
+}
+
+.pelicula-principal .boton:hover{
+    background-color: white;
+    color: #000;
+}
+.pelicula-principal .boton i{
+    margin-right: 1.25em;
+}
+
+/*-----------------Pelicula principal-------------*/
+.container-titulo-controles{
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+}
+
+.container-titulo-controles h3{
+    color: white;
+    font-size: 30px;
+}
+
+.peliculas-recomendadas{
+    margin-bottom: 70px;
+    
+}
+.peliculas-recomendadas .container-principal{
+    position: relative;
+    display: flex;
+    align-items: center;
+    
+}
+
+.peliculas-recomendadas .container-principal .flecha-izquierda,
+.peliculas-recomendadas .container-principal .flecha-derecha{
+    position: absolute;
+    border: none;
+    background-color: rgba(0,0,0,0.3);
+    color: white;
+    height: 50%;
+    font-size: 40px;
+    line-height: 40px;
+    width: 50px;
+    top: calc(50%-25%);
+   
+    z-index: 500;
+    transition: .2s ease all;
+}
+
+.peliculas-recomendadas .container-principal .flecha-izquierda{
+    left: 0;
+}
+.peliculas-recomendadas .container-principal .flecha-derecha{
+    right: 0;
+}
+
+.peliculas-recomendadas .container-carousel{
+    
+    width: 100%;
+    padding: 20px 0;
+    overflow: hidden;
+    scroll-behavior: smooth;
+}
+.peliculas-recomendadas .container-carousel .carousel{
+    display: flex;
+    flex-wrap: nowrap;
+    
+}
+
+.peliculas-recomendadas .container-carousel .carousel .pelicula{
+    min-width: 20%;
+    box-shadow: 5px 5px 10px rgba(0,0,0,0.3);
+    transition: .3s ease all;
+}
+
+
+.peliculas-recomendadas .container-carousel .carousel .pelicula img{
+    width: 100%;
+    vertical-align: top;
+}
+
+
+.peliculas-recomendadas .container-principal .flecha-izquierda:hover,
+.peliculas-recomendadas .container-principal .flecha-derecha:hover {
+    background-color: rgba(0, 0, 0, .9);
+
+}
+
+.peliculas-recomendadas .container-carousel .carousel .pelicula.hover{
+    transform: scale(1.2);
+    transform-origin: top;
+}
+
+
+
+.container-titulo-controles .indicadores button {
+    background: #fff;
+    height: 3px;
+    width: 10px;
+    border: none;
+    cursor: pointer;
+    margin-right: 2px;
+}
+
+
+.container-titulo-controles .indicadores button:hover,
+.container-titulo-controles .indicadores button.activo{
+    background-color: red;
+}
+
+
+
+ /*-----------------Querys-------------*/
+ 
+
+@media screen and (max-width:800px) {
+    header .logotipo{
+        margin-bottom: 10px;
+        font-size: 30px;
+    }
+
+    header .container{ 
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .pelicula-principal{
+        font-size: 14px;
+
+    }
+
+    .pelicula-principal .description{
+        max-width: 100%;
+    }
+
+    .peliculas-recomendadas .container-carousel{
+        overflow: visible;
+    }
+
+    .peliculas-recomendadas .container-carousel .carousel{
+        display: grid;
+        grid-template-columns: repeat(3,1fr);
+        gap: 20px;
+    }
+
+    
+    .peliculas-recomendadas .indicadores,
+    .peliculas-recomendadas .flecha-izquierda,
+    .peliculas-recomendadas .flecha-derecha
+     {
+        display: none;
+    }
+
+
+
+
+
+}
